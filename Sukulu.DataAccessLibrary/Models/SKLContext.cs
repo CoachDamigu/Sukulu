@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,28 @@ namespace Sukulu.DataAccessLibrary.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = (localdb)\\MSSQLLocalDB; Database = SukuluDB; Trusted_Connection = true");
+
+
+            //Local Machine Connection for Update-Database purposes
+            //optionsBuilder.UseSqlServer("server = (localdb)\\MSSQLLocalDB; Database = SukuluDB; Trusted_Connection = true");
+            //Azure DB connection for Update_database purposes
+            //optionsBuilder.UseSqlServer("Data Source=tamonga.database.windows.net;Initial Catalog=SukuluDB;User ID=desflags;Password=ugimaD3d!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+
+            // Application connection
+            SqlConnectionStringBuilder bldr = new SqlConnectionStringBuilder();
+            bldr.DataSource = Properties.Resources.DataSource;
+            bldr.DataSource = Properties.Resources.DataSource;
+            bldr.InitialCatalog = Properties.Resources.InitialCatalog;
+            bldr.UserID = Global.UserID;
+            bldr.Password = Global.Password;
+            bldr.ConnectTimeout = Convert.ToInt32(Properties.Resources.ConnectTimeOut);
+            bldr.Encrypt = true;
+            bldr.TrustServerCertificate = false;
+            bldr.ApplicationIntent = ApplicationIntent.ReadWrite;
+            bldr.MultiSubnetFailover = false;
+            optionsBuilder.UseSqlServer(bldr.ConnectionString);
+
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
@@ -34,6 +56,13 @@ namespace Sukulu.DataAccessLibrary.Models
         public DbSet<Enseignant> Enseignants { get; set; }
         public DbSet<PortfolioEnseignant> PortfolioEnseignants { get; set; }
 
+        public DbSet<CoursPrevu> CoursPrevus { get; set; }
 
+        public DbSet<Presence> Presence { get; set; }
+
+        public DbSet<SKLConfig> SKLConfigs { get; set; }
+        public DbSet<Evaluation> Evaluations { get; set; }
+
+        public DbSet<AdministrationEvaluation> AdministrationEvaluations { get; set; }
     }
 }

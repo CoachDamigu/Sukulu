@@ -37,10 +37,10 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.tpEleves = new System.Windows.Forms.TabPage();
             this.pnlEleveData = new System.Windows.Forms.Panel();
             this.dgvEleves = new System.Windows.Forms.DataGridView();
-            this.pnlFooterEleve = new System.Windows.Forms.Panel();
             this.pnlHeaderEleve = new System.Windows.Forms.Panel();
             this.cbClasses = new System.Windows.Forms.ComboBox();
             this.tpInscriptions = new System.Windows.Forms.TabPage();
+            this.dgvInscriptions = new System.Windows.Forms.DataGridView();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
@@ -52,6 +52,8 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.pnlEleveData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.pnlHeaderEleve.SuspendLayout();
+            this.tpInscriptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscriptions)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -71,7 +73,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(0, 36);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(772, 410);
+            this.pnlBody.Size = new System.Drawing.Size(772, 423);
             this.pnlBody.TabIndex = 2;
             // 
             // tcEcole
@@ -83,7 +85,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.tcEcole.Location = new System.Drawing.Point(0, 0);
             this.tcEcole.Name = "tcEcole";
             this.tcEcole.SelectedIndex = 0;
-            this.tcEcole.Size = new System.Drawing.Size(772, 410);
+            this.tcEcole.Size = new System.Drawing.Size(772, 423);
             this.tcEcole.TabIndex = 0;
             this.tcEcole.SelectedIndexChanged += new System.EventHandler(this.tcEcole_SelectedIndexChanged);
             // 
@@ -93,9 +95,9 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.tpClasses.Location = new System.Drawing.Point(4, 24);
             this.tpClasses.Name = "tpClasses";
             this.tpClasses.Padding = new System.Windows.Forms.Padding(3);
-            this.tpClasses.Size = new System.Drawing.Size(764, 382);
+            this.tpClasses.Size = new System.Drawing.Size(764, 395);
             this.tpClasses.TabIndex = 0;
-            this.tpClasses.Text = "Classes";
+            this.tpClasses.Text = "Salle de classes";
             this.tpClasses.UseVisualStyleBackColor = true;
             // 
             // dgvSalleClasses
@@ -112,19 +114,18 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.dgvSalleClasses.RowHeadersVisible = false;
             this.dgvSalleClasses.RowTemplate.Height = 25;
             this.dgvSalleClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSalleClasses.Size = new System.Drawing.Size(758, 376);
+            this.dgvSalleClasses.Size = new System.Drawing.Size(758, 389);
             this.dgvSalleClasses.TabIndex = 0;
             // 
             // tpEleves
             // 
             this.tpEleves.Controls.Add(this.pnlEleveData);
-            this.tpEleves.Controls.Add(this.pnlFooterEleve);
             this.tpEleves.Controls.Add(this.pnlHeaderEleve);
             this.tpEleves.Location = new System.Drawing.Point(4, 24);
             this.tpEleves.Name = "tpEleves";
-            this.tpEleves.Size = new System.Drawing.Size(764, 382);
+            this.tpEleves.Size = new System.Drawing.Size(764, 395);
             this.tpEleves.TabIndex = 1;
-            this.tpEleves.Text = "Elèves";
+            this.tpEleves.Text = "Elèves inscrits";
             this.tpEleves.UseVisualStyleBackColor = true;
             // 
             // pnlEleveData
@@ -133,7 +134,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.pnlEleveData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEleveData.Location = new System.Drawing.Point(0, 23);
             this.pnlEleveData.Name = "pnlEleveData";
-            this.pnlEleveData.Size = new System.Drawing.Size(764, 324);
+            this.pnlEleveData.Size = new System.Drawing.Size(764, 372);
             this.pnlEleveData.TabIndex = 1;
             // 
             // dgvEleves
@@ -150,16 +151,8 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.dgvEleves.RowHeadersVisible = false;
             this.dgvEleves.RowTemplate.Height = 25;
             this.dgvEleves.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEleves.Size = new System.Drawing.Size(764, 324);
+            this.dgvEleves.Size = new System.Drawing.Size(764, 372);
             this.dgvEleves.TabIndex = 0;
-            // 
-            // pnlFooterEleve
-            // 
-            this.pnlFooterEleve.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooterEleve.Location = new System.Drawing.Point(0, 347);
-            this.pnlFooterEleve.Name = "pnlFooterEleve";
-            this.pnlFooterEleve.Size = new System.Drawing.Size(764, 35);
-            this.pnlFooterEleve.TabIndex = 3;
             // 
             // pnlHeaderEleve
             // 
@@ -183,12 +176,30 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             // 
             // tpInscriptions
             // 
+            this.tpInscriptions.Controls.Add(this.dgvInscriptions);
             this.tpInscriptions.Location = new System.Drawing.Point(4, 24);
             this.tpInscriptions.Name = "tpInscriptions";
-            this.tpInscriptions.Size = new System.Drawing.Size(764, 382);
+            this.tpInscriptions.Size = new System.Drawing.Size(764, 395);
             this.tpInscriptions.TabIndex = 2;
-            this.tpInscriptions.Text = "Inscriptions";
+            this.tpInscriptions.Text = "Inscriptions de l\'année en cours";
             this.tpInscriptions.UseVisualStyleBackColor = true;
+            // 
+            // dgvInscriptions
+            // 
+            this.dgvInscriptions.AllowUserToAddRows = false;
+            this.dgvInscriptions.AllowUserToDeleteRows = false;
+            this.dgvInscriptions.AllowUserToResizeRows = false;
+            this.dgvInscriptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInscriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInscriptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInscriptions.Location = new System.Drawing.Point(0, 0);
+            this.dgvInscriptions.MultiSelect = false;
+            this.dgvInscriptions.Name = "dgvInscriptions";
+            this.dgvInscriptions.RowHeadersVisible = false;
+            this.dgvInscriptions.RowTemplate.Height = 25;
+            this.dgvInscriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInscriptions.Size = new System.Drawing.Size(764, 395);
+            this.dgvInscriptions.TabIndex = 0;
             // 
             // pnlHeader
             // 
@@ -201,9 +212,9 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             // pnlFooter
             // 
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 446);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 459);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(772, 55);
+            this.pnlFooter.Size = new System.Drawing.Size(772, 42);
             this.pnlFooter.TabIndex = 3;
             // 
             // EcoleActions
@@ -222,6 +233,8 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.pnlEleveData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).EndInit();
             this.pnlHeaderEleve.ResumeLayout(false);
+            this.tpInscriptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscriptions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,9 +251,9 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
         private System.Windows.Forms.DataGridView dgvSalleClasses;
         private System.Windows.Forms.DataGridView dgvEleves;
         private System.Windows.Forms.Panel pnlEleveData;
-        private System.Windows.Forms.Panel pnlFooterEleve;
         private System.Windows.Forms.Panel pnlHeaderEleve;
         private System.Windows.Forms.ComboBox cbClasses;
         private System.Windows.Forms.TabPage tpInscriptions;
+        private System.Windows.Forms.DataGridView dgvInscriptions;
     }
 }

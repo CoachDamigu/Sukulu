@@ -69,7 +69,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.lblHeader.Size = new System.Drawing.Size(1023, 41);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Header Display Here";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlRight
             // 
@@ -109,8 +109,8 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlBody;
-        private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Button btnClose;
+        public System.Windows.Forms.Label lblHeader;
     }
 }

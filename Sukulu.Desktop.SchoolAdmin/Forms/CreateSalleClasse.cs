@@ -14,11 +14,13 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
     public partial class CreateSalleClasse : Form
     {
         long _ecoleId, _anneeScolaireId;
-        public CreateSalleClasse(long ecoleId, long anneeScolaireId)
+        string _userName;
+        public CreateSalleClasse(long ecoleId, long anneeScolaireId, string userName)
         {
             InitializeComponent();
             _ecoleId = ecoleId;
             _anneeScolaireId = anneeScolaireId;
+            _userName = userName;
             EcoleFactory ecoleFactory = new EcoleFactory();
             SystemeScolaireFactory systemeScolaireFactory = new SystemeScolaireFactory();
             Ecole ecole = ecoleFactory.getEcoleById(_ecoleId);
@@ -52,7 +54,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
                     Classe cl = (Classe)cbClasses.SelectedItem;
                     EcoleFactory ecoleFactory = new EcoleFactory();
                     long salleClasseId = ecoleFactory.CreateSalleClasse(tbCode.Text.Trim(), tbName.Text.Trim(), tbDescription.Text.Trim(),
-                        _anneeScolaireId, cl.Id, _ecoleId, "SKLADMIN", DateTime.Today);
+                        _anneeScolaireId, cl.Id, _ecoleId, _userName.ToUpper(), DateTime.Today);
                 }
                 else
                 {

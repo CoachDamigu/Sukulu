@@ -19,6 +19,51 @@ namespace Sukulu.DataAccessLibrary.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.AdministrationEvaluation", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("EleveId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("EnseignantId")
+                        .IsRequired()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PointsEarned")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PossiblePoints")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EleveId");
+
+                    b.HasIndex("EnseignantId");
+
+                    b.ToTable("AdministrationEvaluations");
+                });
+
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.AnneeScolaire", b =>
                 {
                     b.Property<long>("Id")
@@ -97,6 +142,48 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.HasIndex("SerieId");
 
                     b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.CoursPrevu", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PortfolioEnseignantId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("StatusCoursPrevu")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PortfolioEnseignantId");
+
+                    b.ToTable("CoursPrevus");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Ecole", b =>
@@ -315,6 +402,42 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.ToTable("Enseignements");
                 });
 
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Evaluation", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("MatiereId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatiereId");
+
+                    b.ToTable("Evaluations");
+                });
+
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Inscription", b =>
                 {
                     b.Property<long>("Id")
@@ -478,6 +601,84 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.HasIndex("SalleClasseMatiereId");
 
                     b.ToTable("PortfolioEnseignants");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Presence", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<long>("CoursPrevuId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("EleveId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CoursPrevuId");
+
+                    b.HasIndex("EleveId");
+
+                    b.ToTable("Presence");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLConfig", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("BooleanValue")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumericValue")
+                        .HasColumnType("int");
+
+                    b.Property<string>("stringValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SKLConfigs");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SalleClasse", b =>
@@ -659,6 +860,25 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.ToTable("SystemeScolaires");
                 });
 
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.AdministrationEvaluation", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.Eleve", "eleve")
+                        .WithMany()
+                        .HasForeignKey("EleveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.Enseignant", "Enseignant")
+                        .WithMany()
+                        .HasForeignKey("EnseignantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("eleve");
+
+                    b.Navigation("Enseignant");
+                });
+
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Classe", b =>
                 {
                     b.HasOne("Sukulu.DataAccessLibrary.Models.Niveau", "Niveau")
@@ -674,6 +894,17 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.Navigation("Niveau");
 
                     b.Navigation("Serie");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.CoursPrevu", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.PortfolioEnseignant", "PortfolioEnseignant")
+                        .WithMany()
+                        .HasForeignKey("PortfolioEnseignantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PortfolioEnseignant");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Ecole", b =>
@@ -696,6 +927,17 @@ namespace Sukulu.DataAccessLibrary.Migrations
                         .IsRequired();
 
                     b.Navigation("SystemeScolaire");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Evaluation", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.Matiere", "Matiere")
+                        .WithMany()
+                        .HasForeignKey("MatiereId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Matiere");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Inscription", b =>
@@ -745,6 +987,25 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.Navigation("Enseignant");
 
                     b.Navigation("SalleClasseMatiere");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.Presence", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.CoursPrevu", "CoursPrevu")
+                        .WithMany()
+                        .HasForeignKey("CoursPrevuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.Eleve", "Eleve")
+                        .WithMany()
+                        .HasForeignKey("EleveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CoursPrevu");
+
+                    b.Navigation("Eleve");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SalleClasse", b =>

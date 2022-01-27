@@ -15,11 +15,13 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
     public partial class EcoleActions : UserControl
     {
         long _ecoleId, _anneeScolaireId;
-        public EcoleActions(long ecoleId, long anneeScolaireId)
+        string _userName;
+        public EcoleActions(long ecoleId, long anneeScolaireId, string userName)
         {
             InitializeComponent();
             _ecoleId = ecoleId;
             _anneeScolaireId = anneeScolaireId;
+            _userName = userName;
             AddControls();
             LoadSalleClasses();
             // initialize de SalleClasse combo box
@@ -44,7 +46,9 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
         public void AddControls()
         {
             //Add a header
-            Header header = new Header("Gestion de l'école");
+            EcoleFactory Factory = new EcoleFactory();
+            Ecole ecole = Factory.getEcoleById(_ecoleId);
+            Header header = new Header(ecole.FullName + " (Inscriptions, Elèves, Classes)");
             header.CloseClicked += new EventHandler(CloseControlClicked);
             header.Dock = DockStyle.Fill;
             pnlHeader.Controls.Add(header);
@@ -140,6 +144,30 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             }
         }
 
+        private void LoadInscriptions()
+        {
+            dgvInscriptions.DataSource = null;
+            EcoleFactory Factory = new EcoleFactory();
+            List<Inscription> AllInscriptions = Factory.getInscriptionOfEcoleAndAnneeScolaire(_ecoleId, _anneeScolaireId);
+            if (AllInscriptions.Count > 0)
+            {
+                var source = new BindingSource();
+                var ListInscriptions = from insc in AllInscriptions
+                                       select new
+                                       {
+                                           Id = insc.Id,
+                                           Date = insc.DateInscription.ToShortDateString(),
+                                           Eleve = insc.Eleve.ToString(),
+                                           Classe = insc.SalleClasse.ToString()
+                                       };
+                dgvInscriptions.AutoGenerateColumns = true;
+                source.DataSource = ListInscriptions;
+                dgvInscriptions.DataSource = source;
+                dgvInscriptions.Columns[0].Visible = false;
+            }
+
+        }
+
         private void cbClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvEleves.DataSource = null;
@@ -173,7 +201,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             {
                 case 0:
                     {
-                        CreateSalleClasse form = new CreateSalleClasse(4, 1);
+                        CreateSalleClasse form = new CreateSalleClasse(_ecoleId, _anneeScolaireId, _userName);
                         form.ShowDialog();
                         LoadSalleClasses();
                         LoadSalleClassesComobBox();
@@ -181,32 +209,19 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
                     }
                 case 1:
                     {
-                        //CreateEnseignement form = new CreateEnseignement();
-                        //form.ShowDialog();
-                        //LoadEnseignements();
+                        CreateEleve form = new CreateEleve();
+                        form.ShowDialog();
+                        LoadEleves(false,0);
                         break;
                     }
                 case 2:
                     {
-                        //CreateNiveau form = new CreateNiveau();
-                        //form.ShowDialog();
-                        //LoadNiveaux();
+                        CreateInscription form = new CreateInscription(_ecoleId, _anneeScolaireId, _userName);
+                        form.ShowDialog();
+                        LoadInscriptions();
                         break;
                     }
-                case 3:
-                    {
-                        //CreateSerie form = new CreateSerie();
-                        //form.ShowDialog();
-                        //LoadSeries();
-                        break;
-                    }
-                case 4:
-                    {
-                        //CreateClasse form = new CreateClasse();
-                        //form.ShowDialog();
-                        //LoadClasses();
-                        break;
-                    }
+
 
                 default:
                     break;
@@ -233,8 +248,6 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
 
         }
 
-        
-
         private void PrintRecordsClicked(object sender, EventArgs e)
         {
 
@@ -260,9 +273,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
                     }
                 case 2:
                     {
-                        //CreateNiveau form = new CreateNiveau();
-                        //form.ShowDialog();
-                        //LoadNiveaux();
+                        LoadInscriptions();
                         break;
                     }
                 case 3:

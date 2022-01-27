@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sukulu.Desktop.SKLAdmin", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sukulu.DataAccessLibrary", "Sukulu.DataAccessLibrary\Sukulu.DataAccessLibrary.csproj", "{E995DD06-E840-454C-8885-4314D36BDF95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sukulu.Desktop.SchoolAdmin", "Sukulu.Desktop.SchoolAdmin\Sukulu.Desktop.SchoolAdmin.csproj", "{08DA0AEA-2AE8-4D64-AC9C-67E7554AD9CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sukulu.Desktop.SchoolAdmin", "Sukulu.Desktop.SchoolAdmin\Sukulu.Desktop.SchoolAdmin.csproj", "{08DA0AEA-2AE8-4D64-AC9C-67E7554AD9CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

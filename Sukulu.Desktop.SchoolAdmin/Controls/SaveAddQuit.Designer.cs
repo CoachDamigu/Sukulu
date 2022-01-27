@@ -44,7 +44,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(170, 53);
+            this.pnlMain.Size = new System.Drawing.Size(127, 42);
             this.pnlMain.TabIndex = 1;
             // 
             // flpControls
@@ -52,38 +52,41 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.flpControls.Controls.Add(this.btnSaveQuit);
             this.flpControls.Controls.Add(this.btnSaveAdd);
             this.flpControls.Controls.Add(this.btnQuit);
-            this.flpControls.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpControls.Location = new System.Drawing.Point(0, 0);
             this.flpControls.Name = "flpControls";
-            this.flpControls.Size = new System.Drawing.Size(163, 53);
+            this.flpControls.Size = new System.Drawing.Size(127, 42);
             this.flpControls.TabIndex = 0;
             // 
             // btnSaveQuit
             // 
-            this.btnSaveQuit.Image = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.save_close_48px;
+            this.btnSaveQuit.BackgroundImage = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.save_close_48px;
+            this.btnSaveQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSaveQuit.Location = new System.Drawing.Point(3, 3);
             this.btnSaveQuit.Name = "btnSaveQuit";
-            this.btnSaveQuit.Size = new System.Drawing.Size(48, 48);
+            this.btnSaveQuit.Size = new System.Drawing.Size(36, 36);
             this.btnSaveQuit.TabIndex = 2;
             this.btnSaveQuit.UseVisualStyleBackColor = true;
             this.btnSaveQuit.Click += new System.EventHandler(this.btnSaveQuit_Click);
             // 
             // btnSaveAdd
             // 
-            this.btnSaveAdd.Image = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.save_Add_48px;
-            this.btnSaveAdd.Location = new System.Drawing.Point(57, 3);
+            this.btnSaveAdd.BackgroundImage = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.save_Add_48px;
+            this.btnSaveAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSaveAdd.Location = new System.Drawing.Point(45, 3);
             this.btnSaveAdd.Name = "btnSaveAdd";
-            this.btnSaveAdd.Size = new System.Drawing.Size(48, 48);
+            this.btnSaveAdd.Size = new System.Drawing.Size(36, 36);
             this.btnSaveAdd.TabIndex = 1;
             this.btnSaveAdd.UseVisualStyleBackColor = true;
             this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
             // 
             // btnQuit
             // 
-            this.btnQuit.Image = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.Logout_48px;
-            this.btnQuit.Location = new System.Drawing.Point(111, 3);
+            this.btnQuit.BackgroundImage = global::Sukulu.Desktop.SchoolAdmin.Properties.Resources.Logout_48px;
+            this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuit.Location = new System.Drawing.Point(87, 3);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(48, 48);
+            this.btnQuit.Size = new System.Drawing.Size(36, 36);
             this.btnQuit.TabIndex = 0;
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -94,7 +97,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMain);
             this.Name = "SaveAddQuit";
-            this.Size = new System.Drawing.Size(170, 53);
+            this.Size = new System.Drawing.Size(127, 42);
             this.pnlMain.ResumeLayout(false);
             this.flpControls.ResumeLayout(false);
             this.ResumeLayout(false);

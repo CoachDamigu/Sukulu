@@ -60,24 +60,24 @@ namespace Sukulu.Desktop.SKLAdmin.Forms
         {
             this.Close();
         }
-        private void Quitter_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        //private void Quitter_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //}
 
-        private void btnValidate_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(tbName.Text) || string.IsNullOrWhiteSpace(tbPrimaryOwner.Text))
-            {
-                MessageBox.Show("Il manque des données");
-            }
-            else
-            {
-                SystemeScolaireFactory Factory = new SystemeScolaireFactory();
-                long Id = Factory.createSystemeScolaire(tbName.Text.Trim(), tbPrimaryOwner.Text.Trim(), tbSecondaryOwner.Text.Trim(),
-                    tbDescription.Text.Trim(), tbCountry.Text.Trim(), tbNotes.Text.Trim(), "SKLADMIN", DateTime.Today);
-                this.Close();
-            }
-        }
+        //private void btnValidate_Click(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(tbName.Text) || string.IsNullOrWhiteSpace(tbPrimaryOwner.Text))
+        //    {
+        //        MessageBox.Show("Il manque des données");
+        //    }
+        //    else
+        //    {
+        //        SystemeScolaireFactory Factory = new SystemeScolaireFactory();
+        //        long Id = Factory.createSystemeScolaire(tbName.Text.Trim(), tbPrimaryOwner.Text.Trim(), tbSecondaryOwner.Text.Trim(),
+        //            tbDescription.Text.Trim(), tbCountry.Text.Trim(), tbNotes.Text.Trim(), "SKLADMIN", DateTime.Today);
+        //        this.Close();
+        //    }
+        //}
     }
 }
