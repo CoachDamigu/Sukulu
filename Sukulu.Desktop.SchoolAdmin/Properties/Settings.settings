@@ -33,10 +33,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="EcoleId" Type="System.Int64" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AnneeScolaireId" Type="System.Int64" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

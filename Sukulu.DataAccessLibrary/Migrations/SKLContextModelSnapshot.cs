@@ -641,7 +641,112 @@ namespace Sukulu.DataAccessLibrary.Migrations
 
                     b.HasIndex("EleveId");
 
-                    b.ToTable("Presence");
+                    b.ToTable("Presences");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLClient", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SKLClients");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLClientEcole", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("EcoleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("SKLClientId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EcoleId");
+
+                    b.HasIndex("SKLClientId");
+
+                    b.ToTable("SKLClientEcoles");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLClientEcoleUser", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("SKLClientEcoleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SKLUserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SKLClientEcoleId");
+
+                    b.HasIndex("SKLUserId");
+
+                    b.ToTable("SKLClientEcoleUsers");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLConfig", b =>
@@ -679,6 +784,105 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SKLConfigs");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLUser", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("AccountLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("FirstTimeLogging")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastTimeLogging")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHashed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("UserType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SKLUsers");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLUserResource", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ResourceId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("ResourceLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ResourceType")
+                        .HasColumnType("int");
+
+                    b.Property<long>("SKLUserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SKLUserId");
+
+                    b.ToTable("SKLUserResources");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SalleClasse", b =>
@@ -1006,6 +1210,55 @@ namespace Sukulu.DataAccessLibrary.Migrations
                     b.Navigation("CoursPrevu");
 
                     b.Navigation("Eleve");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLClientEcole", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.Ecole", "Ecole")
+                        .WithMany()
+                        .HasForeignKey("EcoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.SKLClient", "SKLClient")
+                        .WithMany()
+                        .HasForeignKey("SKLClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ecole");
+
+                    b.Navigation("SKLClient");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLClientEcoleUser", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.SKLClientEcole", "SKLClientEcole")
+                        .WithMany()
+                        .HasForeignKey("SKLClientEcoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.SKLUser", "SKLUser")
+                        .WithMany()
+                        .HasForeignKey("SKLUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SKLClientEcole");
+
+                    b.Navigation("SKLUser");
+                });
+
+            modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SKLUserResource", b =>
+                {
+                    b.HasOne("Sukulu.DataAccessLibrary.Models.SKLUser", "SKLUser")
+                        .WithMany()
+                        .HasForeignKey("SKLUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SKLUser");
                 });
 
             modelBuilder.Entity("Sukulu.DataAccessLibrary.Models.SalleClasse", b =>

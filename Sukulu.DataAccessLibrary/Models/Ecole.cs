@@ -21,5 +21,10 @@ namespace Sukulu.DataAccessLibrary.Models
         [Required]
         public long SystemeScolaireId { get; set; }
         public virtual SystemeScolaire SystemeScolaire { get; set; }
+
+        public override string ToString()
+        {
+            return ShortName;
+        }
     }
 }

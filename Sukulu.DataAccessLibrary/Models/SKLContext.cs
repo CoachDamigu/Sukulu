@@ -58,11 +58,25 @@ namespace Sukulu.DataAccessLibrary.Models
 
         public DbSet<CoursPrevu> CoursPrevus { get; set; }
 
-        public DbSet<Presence> Presence { get; set; }
+        public DbSet<Presence> Presences { get; set; }
 
         public DbSet<SKLConfig> SKLConfigs { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
 
         public DbSet<AdministrationEvaluation> AdministrationEvaluations { get; set; }
+
+        public DbSet<SKLUser> SKLUsers { get; set; }
+
+         public DbSet<SKLClient> SKLClients { get; set; }
+        public DbSet<SKLUserResource> SKLUserResources { get; set; }
+
+
+        public DbSet<SKLClientEcole> SKLClientEcoles { get; set; }
+
+
+        public DbSet<SKLClientEcoleUser> SKLClientEcoleUsers { get; set; }
+
+
+
     }
 }

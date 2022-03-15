@@ -26,8 +26,9 @@ namespace Sukulu.Desktop.SchoolAdmin
             tsmiEcole.Visible = false;
             tsmiEmploiDuTemps.Visible = false;
             tsmiEnseignement.Visible = false;
-            _ecoleId = Properties.Settings.Default.EcoleId;
-            _anneeScolaireId = Properties.Settings.Default.AnneeScolaireId;
+            tsmiPresences.Visible = false;
+            //_ecoleId = Properties.Settings.Default.EcoleId;
+            //_anneeScolaireId = Properties.Settings.Default.AnneeScolaireId;
         }
 
         private void tsmiEcole_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace Sukulu.Desktop.SchoolAdmin
             if (!_connected)
             {
                 // Not connected
-                SukuluConnect form = new SukuluConnect();
+                SKLEcoleAdminConnect form = new SKLEcoleAdminConnect();
                 form.ShowDialog();
                 if (form.connected)
                 {
@@ -89,6 +90,7 @@ namespace Sukulu.Desktop.SchoolAdmin
                     tsmiEcole.Visible = true;
                     tsmiEmploiDuTemps.Visible = true;
                     tsmiEnseignement.Visible = true;
+                    tsmiPresences.Visible = true;
                     _connected = form.connected;
                     lblConnected.Text = "Vous êtes connecté : " + form.UserName.ToUpper();
                     _username = form.UserName;
@@ -103,6 +105,7 @@ namespace Sukulu.Desktop.SchoolAdmin
                     tsmiEcole.Visible = false;
                     tsmiEmploiDuTemps.Visible = false;
                     tsmiEnseignement.Visible = false;
+                    tsmiPresences.Visible = false;
                     _connected = form.connected;
                     _username = null;
                     lblConnected.Text = "Vous n'êtes pas connecté...";
@@ -115,11 +118,23 @@ namespace Sukulu.Desktop.SchoolAdmin
                 tsmiEcole.Visible = false;
                 tsmiEmploiDuTemps.Visible = false;
                 tsmiEnseignement.Visible = false;
+                tsmiPresences.Visible = false;
                 _connected = false;
                 _username = null;
                 lblConnected.Text = "Vous n'êtes pas connecté...";
                 lblEcoleAnneeScolaire.Text = "";
             }
+        }
+
+        private void tsmiPresences_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            pnlMenu.Visible = false; /// hiding the menu
+            PresenceActions ctrlPresenceActions = new PresenceActions(_ecoleId, _anneeScolaireId, _username);
+            pnlBody.Controls.Clear();
+            ctrlPresenceActions.Dock = DockStyle.Fill;
+            pnlBody.Controls.Add(ctrlPresenceActions);
+            Cursor.Current = Cursors.Default;
         }
     }
 }

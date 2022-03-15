@@ -1,7 +1,7 @@
 ﻿
-namespace Sukulu.Desktop.SchoolAdmin.Forms
+namespace Sukulu.Desktop.SKLAdmin.Forms
 {
-    partial class SukuluConnect
+    partial class SKLAdminConnect
     {
         /// <summary>
         /// Required designer variable.
@@ -36,27 +36,23 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblEcole = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBody.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
             this.pnlMain.Controls.Add(this.pnlBody);
-            this.pnlMain.Controls.Add(this.pnlHeader);
             this.pnlMain.Controls.Add(this.pnlFooter);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(276, 159);
-            this.pnlMain.TabIndex = 0;
+            this.pnlMain.Size = new System.Drawing.Size(273, 115);
+            this.pnlMain.TabIndex = 1;
             // 
             // pnlBody
             // 
@@ -66,25 +62,25 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             this.pnlBody.Controls.Add(this.tbLogin);
             this.pnlBody.Controls.Add(this.label1);
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBody.Location = new System.Drawing.Point(0, 30);
+            this.pnlBody.Location = new System.Drawing.Point(0, 0);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(276, 99);
+            this.pnlBody.Size = new System.Drawing.Size(273, 85);
             this.pnlBody.TabIndex = 2;
             // 
             // lblErrorMessage
             // 
             this.lblErrorMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMessage.Location = new System.Drawing.Point(0, 80);
+            this.lblErrorMessage.Location = new System.Drawing.Point(0, 66);
             this.lblErrorMessage.Name = "lblErrorMessage";
-            this.lblErrorMessage.Size = new System.Drawing.Size(276, 19);
+            this.lblErrorMessage.Size = new System.Drawing.Size(273, 19);
             this.lblErrorMessage.TabIndex = 4;
             this.lblErrorMessage.Text = "Messages d\'erreur";
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(102, 49);
+            this.tbPassword.Location = new System.Drawing.Point(102, 41);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(153, 23);
@@ -93,7 +89,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 49);
+            this.label2.Location = new System.Drawing.Point(7, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 15);
             this.label2.TabIndex = 2;
@@ -101,7 +97,7 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(102, 21);
+            this.tbLogin.Location = new System.Drawing.Point(102, 13);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(153, 23);
             this.tbLogin.TabIndex = 1;
@@ -109,33 +105,11 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 24);
+            this.label1.Location = new System.Drawing.Point(7, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom utilisateur";
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.lblEcole);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(276, 30);
-            this.pnlHeader.TabIndex = 1;
-            // 
-            // lblEcole
-            // 
-            this.lblEcole.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblEcole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEcole.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEcole.ForeColor = System.Drawing.Color.Blue;
-            this.lblEcole.Location = new System.Drawing.Point(0, 0);
-            this.lblEcole.Name = "lblEcole";
-            this.lblEcole.Size = new System.Drawing.Size(276, 30);
-            this.lblEcole.TabIndex = 0;
-            this.lblEcole.Text = "[Ecole]";
-            this.lblEcole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlFooter
             // 
@@ -143,15 +117,15 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             this.pnlFooter.Controls.Add(this.btnQuit);
             this.pnlFooter.Controls.Add(this.btnValidate);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 129);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 85);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(276, 30);
+            this.pnlFooter.Size = new System.Drawing.Size(273, 30);
             this.pnlFooter.TabIndex = 0;
             // 
             // btnQuit
             // 
             this.btnQuit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnQuit.Location = new System.Drawing.Point(214, 0);
+            this.btnQuit.Location = new System.Drawing.Point(211, 0);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(60, 28);
             this.btnQuit.TabIndex = 1;
@@ -170,19 +144,18 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
-            // SukuluConnect
+            // SKLAdminConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 159);
+            this.ClientSize = new System.Drawing.Size(273, 115);
             this.Controls.Add(this.pnlMain);
-            this.Name = "SukuluConnect";
+            this.Name = "SKLAdminConnect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SukuluConnect";
+            this.Text = "Administrateur SUKULU";
             this.pnlMain.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
-            this.pnlHeader.ResumeLayout(false);
             this.pnlFooter.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -197,8 +170,6 @@ namespace Sukulu.Desktop.SchoolAdmin.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label lblEcole;
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button btnValidate;

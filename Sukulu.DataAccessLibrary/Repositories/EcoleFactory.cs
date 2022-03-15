@@ -1,4 +1,5 @@
-﻿using Sukulu.DataAccessLibrary.Models;
+﻿using Sukulu.DataAccessLibrary.Enums;
+using Sukulu.DataAccessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -296,6 +297,25 @@ namespace Sukulu.DataAccessLibrary.Repositories
         public SalleClasse getSalleClasseById(long salleClasseId)
         {
             return _context.SalleClasses.Where(sc => sc.Id == salleClasseId).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Retourne la liste de toutes les écoles 
+        /// </summary>
+        /// <returns></returns>
+        public List<Ecole> getAllEcoles()
+        {
+            return _context.Ecoles.ToList();
+        }
+
+        public List<Eleve> getAllElevesFromAnneeScolaire(long anneeScolaireId)
+        {
+            return _context.Inscriptions.Where(i => i.SalleClasse.AnneeScolaireId == anneeScolaireId).Select(i => i.Eleve).Distinct().ToList();
+        }
+
+        public List<Eleve> getAllElevesFromEcoleAndAnneeScolaire(long ecoleId, long anneeScolaireId)
+        {
+            return _context.Inscriptions.Where(insc => insc.SalleClasse.AnneeScolaireId == anneeScolaireId && insc.SalleClasse.EcoleId == ecoleId).Select(insc => insc.Eleve).Distinct().ToList();
         }
 
     }

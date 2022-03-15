@@ -42,6 +42,7 @@ namespace Sukulu.Desktop.SchoolAdmin
             this.tsmiEnseignement = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEmploiDuTemps = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiQuitter = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPresences = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -128,6 +129,7 @@ namespace Sukulu.Desktop.SchoolAdmin
             this.tsmiEcole,
             this.tsmiEnseignement,
             this.tsmiEmploiDuTemps,
+            this.tsmiPresences,
             this.tsmiQuitter});
             this.tsmiSukulu.Name = "tsmiSukulu";
             this.tsmiSukulu.Size = new System.Drawing.Size(55, 25);
@@ -136,37 +138,44 @@ namespace Sukulu.Desktop.SchoolAdmin
             // tsmiConnectDeconnect
             // 
             this.tsmiConnectDeconnect.Name = "tsmiConnectDeconnect";
-            this.tsmiConnectDeconnect.Size = new System.Drawing.Size(164, 22);
+            this.tsmiConnectDeconnect.Size = new System.Drawing.Size(180, 22);
             this.tsmiConnectDeconnect.Text = "Se Connecter";
             this.tsmiConnectDeconnect.Click += new System.EventHandler(this.tsmiConnectDeconnect_Click);
             // 
             // tsmiEcole
             // 
             this.tsmiEcole.Name = "tsmiEcole";
-            this.tsmiEcole.Size = new System.Drawing.Size(164, 22);
+            this.tsmiEcole.Size = new System.Drawing.Size(180, 22);
             this.tsmiEcole.Text = "Ecole";
             this.tsmiEcole.Click += new System.EventHandler(this.tsmiEcole_Click);
             // 
             // tsmiEnseignement
             // 
             this.tsmiEnseignement.Name = "tsmiEnseignement";
-            this.tsmiEnseignement.Size = new System.Drawing.Size(164, 22);
+            this.tsmiEnseignement.Size = new System.Drawing.Size(180, 22);
             this.tsmiEnseignement.Text = "Enseignement";
             this.tsmiEnseignement.Click += new System.EventHandler(this.tsmiEnseignement_Click);
             // 
             // tsmiEmploiDuTemps
             // 
             this.tsmiEmploiDuTemps.Name = "tsmiEmploiDuTemps";
-            this.tsmiEmploiDuTemps.Size = new System.Drawing.Size(164, 22);
+            this.tsmiEmploiDuTemps.Size = new System.Drawing.Size(180, 22);
             this.tsmiEmploiDuTemps.Text = "Emploi du temps";
             this.tsmiEmploiDuTemps.Click += new System.EventHandler(this.tsmiEmploiDuTemps_Click);
             // 
             // tsmiQuitter
             // 
             this.tsmiQuitter.Name = "tsmiQuitter";
-            this.tsmiQuitter.Size = new System.Drawing.Size(164, 22);
+            this.tsmiQuitter.Size = new System.Drawing.Size(180, 22);
             this.tsmiQuitter.Text = "Quitter";
             this.tsmiQuitter.Click += new System.EventHandler(this.tsmiQuitter_Click);
+            // 
+            // tsmiPresences
+            // 
+            this.tsmiPresences.Name = "tsmiPresences";
+            this.tsmiPresences.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPresences.Text = "Presences";
+            this.tsmiPresences.Click += new System.EventHandler(this.tsmiPresences_Click);
             // 
             // SchoolAdminStart
             // 
@@ -204,6 +213,7 @@ namespace Sukulu.Desktop.SchoolAdmin
         private System.Windows.Forms.ToolStripMenuItem tsmiConnectDeconnect;
         private System.Windows.Forms.Label lblConnected;
         private System.Windows.Forms.Label lblEcoleAnneeScolaire;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPresences;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sukulu.DataAccessLibrary.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -15,5 +16,14 @@ namespace Sukulu.DataAccessLibrary.Models
         [Required]
         public StatusCoursPrevu StatusCoursPrevu { get; set; }
         public string Notes { get; set; }
+
+        public override string ToString()
+        {
+            DateTime start = Start;
+            DateTime end = End;
+            string startTime = start.TimeOfDay.Hours.ToString() + ":" + start.TimeOfDay.Minutes.ToString();
+            string endTime = end.TimeOfDay.Hours.ToString() + ":" + end.TimeOfDay.Minutes.ToString();
+            return startTime + " - " + endTime + " (" + PortfolioEnseignant.SalleClasseMatiere.Matiere.Name + ")";
+        }
     }
 }

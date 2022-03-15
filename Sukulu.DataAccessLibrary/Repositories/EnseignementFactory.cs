@@ -1,4 +1,5 @@
-﻿using Sukulu.DataAccessLibrary.Models;
+﻿using Sukulu.DataAccessLibrary.Enums;
+using Sukulu.DataAccessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -284,6 +285,42 @@ namespace Sukulu.DataAccessLibrary.Repositories
             _context.SaveChanges();
 
             return pfe.Id;
+        }
+
+        /// <summary>
+        /// Crée une présence
+        /// </summary>
+        /// <param name="code">Code de la présence</param>
+        /// <param name="notes">Notes</param>
+        /// <param name="coursPrevuId">Identifiant du cours </param>
+        /// <param name="eleveId">Identifiant de l'eleve</param>
+        /// <param name="createdBy">Auteur de la creation</param>
+        /// <param name="dateCreated">Date de la creation</param>
+        /// <returns></returns>
+        public long createPresence(CodePresence code, string notes, long coursPrevuId, long eleveId, string createdBy, DateTime dateCreated)
+        {
+            Presence pr = new Presence();
+            pr.Code = code;
+            pr.Notes = notes;
+            pr.CoursPrevuId = coursPrevuId;
+            pr.EleveId = eleveId;
+            pr.CreatedBy = createdBy.ToUpper();
+            pr.DateCreated = dateCreated;
+
+            _context.Presences.Add(pr);
+
+            return pr.Id;
+        }
+
+        public List<Enseignant> getAllEnseignantsFromEcoleAndAnneeScolaire(long ecoleId, long anneeScolaireId)
+        {
+            return _context.PortfolioEnseignants.Where(p => p.SalleClasseMatiere.SalleClasse.EcoleId == ecoleId &&
+            p.SalleClasseMatiere.SalleClasse.AnneeScolaireId == anneeScolaireId).Select(p => p.Enseignant).Distinct().ToList();
+        }
+
+        public List<Enseignant> getAllEnseignantsFromSalleClasse(long salleClasseId)
+        {
+            return _context.PortfolioEnseignants.Where(p => p.SalleClasseMatiere.SalleClasseId == salleClasseId).Select(p => p.Enseignant).Distinct().ToList();
         }
 
     }

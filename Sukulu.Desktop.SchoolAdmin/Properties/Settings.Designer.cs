@@ -145,7 +145,6 @@ namespace Sukulu.Desktop.SchoolAdmin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public long EcoleId {
             get {
                 return ((long)(this["EcoleId"]));
@@ -157,7 +156,6 @@ namespace Sukulu.Desktop.SchoolAdmin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public long AnneeScolaireId {
             get {
                 return ((long)(this["AnneeScolaireId"]));

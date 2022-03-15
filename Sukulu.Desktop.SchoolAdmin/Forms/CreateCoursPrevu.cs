@@ -1,4 +1,5 @@
-﻿using Sukulu.DataAccessLibrary.Models;
+﻿using Sukulu.DataAccessLibrary.Enums;
+using Sukulu.DataAccessLibrary.Models;
 using Sukulu.DataAccessLibrary.Repositories;
 using Sukulu.Desktop.SchoolAdmin.Controls;
 using System;

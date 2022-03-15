@@ -1,4 +1,5 @@
-﻿using Sukulu.DataAccessLibrary.Models;
+﻿using Sukulu.DataAccessLibrary.Enums;
+using Sukulu.DataAccessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
